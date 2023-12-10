@@ -1,0 +1,117 @@
+/* number of images*/
+.gallery {
+  --d: 10s; /* duration */
+  display: grid;
+  width: 220px;
+}
+
+.gallery > img {
+  grid-area: 1/1;
+  width: 100%;
+  aspect-ratio: 1;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border: 10px solid #f2f2f2;
+  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.4666666667);
+          box-shadow: 0 0 4px rgba(0, 0, 0, 0.4666666667);
+  z-index: 2;
+  -webkit-animation: slide var(--d) infinite, z-order var(--d) infinite steps(1);
+          animation: slide var(--d) infinite, z-order var(--d) infinite steps(1);
+}
+
+.gallery img:last-child {
+  -webkit-animation-name: slide, z-order-last;
+          animation-name: slide, z-order-last;
+}
+
+.gallery > img:nth-child(1) {
+  -webkit-animation-delay: calc(0 * var(--d));
+          animation-delay: calc(0 * var(--d));
+  --r: -4deg;
+}
+
+.gallery > img:nth-child(2) {
+  -webkit-animation-delay: calc(-0.2 * var(--d));
+          animation-delay: calc(-0.2 * var(--d));
+  --r: 5deg;
+}
+
+.gallery > img:nth-child(3) {
+  -webkit-animation-delay: calc(-0.4 * var(--d));
+          animation-delay: calc(-0.4 * var(--d));
+  --r: 8deg;
+}
+
+.gallery > img:nth-child(4) {
+  -webkit-animation-delay: calc(-0.6 * var(--d));
+          animation-delay: calc(-0.6 * var(--d));
+  --r: 17deg;
+}
+
+.gallery > img:nth-child(5) {
+  -webkit-animation-delay: calc(-0.8 * var(--d));
+          animation-delay: calc(-0.8 * var(--d));
+  --r: -18deg;
+}
+
+@-webkit-keyframes slide {
+  10% {
+    -webkit-transform: translateX(120%) rotate(var(--r));
+            transform: translateX(120%) rotate(var(--r));
+  }
+  0%, 100%, 20% {
+    -webkit-transform: translateX(0%) rotate(var(--r));
+            transform: translateX(0%) rotate(var(--r));
+  }
+}
+
+@keyframes slide {
+  10% {
+    -webkit-transform: translateX(120%) rotate(var(--r));
+            transform: translateX(120%) rotate(var(--r));
+  }
+  0%, 100%, 20% {
+    -webkit-transform: translateX(0%) rotate(var(--r));
+            transform: translateX(0%) rotate(var(--r));
+  }
+}
+@-webkit-keyframes z-order {
+  10%, 20% {
+    z-index: 1;
+  }
+  80% {
+    z-index: 2;
+  }
+}
+@keyframes z-order {
+  10%, 20% {
+    z-index: 1;
+  }
+  80% {
+    z-index: 2;
+  }
+}
+@-webkit-keyframes z-order-last {
+  10%, 20% {
+    z-index: 1;
+  }
+  90% {
+    z-index: 2;
+  }
+}
+@keyframes z-order-last {
+  10%, 20% {
+    z-index: 1;
+  }
+  90% {
+    z-index: 2;
+  }
+}
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+  background: #CDB380;
+  overflow: hidden;
+}/*# sourceMappingURL=carousel.css.map */
